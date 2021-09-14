@@ -6,22 +6,23 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
+
 @SpringBootTest
 class DemoApplicationTests {
 
     @Autowired
     StudentRepository studentRepository;
-
     @Test
-    public void insertSinhVien(){
-        Student student = Student.builder()
-                .firstName("Nguyen Thanh ")
-                .lastName("Nghia")
-                .email("anhdung@")
-                .phone("1234567")
-                .build();
-        studentRepository.save(student);
+    public void getStudents(){
 
-    }
+        List<Student> list = studentRepository.getStudents();
+        for (Student student : list){
+            System.out.println(student.getFirstName());
+            System.out.println(student.getLastName());
+            System.out.println(student.getEmail());
+            System.out.println(student.getPhone());
+        }}
+
 
 }
