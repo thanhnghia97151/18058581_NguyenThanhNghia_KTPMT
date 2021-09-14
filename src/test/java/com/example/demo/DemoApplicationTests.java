@@ -13,16 +13,17 @@ class DemoApplicationTests {
 
     @Autowired
     StudentRepository studentRepository;
-    @Test
-    public void getStudents(){
 
-        List<Student> list = studentRepository.getStudents();
-        for (Student student : list){
-            System.out.println(student.getFirstName());
-            System.out.println(student.getLastName());
-            System.out.println(student.getEmail());
-            System.out.println(student.getPhone());
-        }}
+    @Test
+    public void getStudent(){
+
+        Student student  = studentRepository.getStudentByLastName("Nghia");
+        System.out.println(student.getFirstName());
+        System.out.println(student.getLastName());
+        System.out.println(student.getEmail());
+        System.out.println(student.getPhone());
+    }
+
 
 
 }

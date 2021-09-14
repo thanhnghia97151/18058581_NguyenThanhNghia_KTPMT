@@ -9,6 +9,6 @@ import java.util.List;
 
 @Repository
 public interface StudentRepository extends CrudRepository<Student, Long> {
-    @Query(value="select * from Student ", nativeQuery = true)
-    public List<Student> getStudents();
+    @Query(value="select s from Student s where s.lastName =?1")
+    public Student getStudentByLastName(String lastname);
 }
